@@ -1,0 +1,46 @@
+@use './styles/variables.scss' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $bg-main;
+  color: $text-white;
+  font-family: $font-book;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: $trans-fast;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  transition: $trans-fast;
+}
+
+ul, ol {
+  list-style: none;
+}

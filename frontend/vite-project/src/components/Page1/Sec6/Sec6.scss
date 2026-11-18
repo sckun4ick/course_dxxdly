@@ -1,0 +1,92 @@
+@use '../../../styles/variables.scss' as *;
+
+.sec6 {
+  width: 100vw;
+  min-height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sec6_center {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sec6_banner {
+      width: 100%;
+      height: 28vh;
+      background: linear-gradient(135deg, #4A46E9 0%, #6E62FF 50%, #9084FF 100%);
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2vh;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(74, 70, 233, 0.3);
+
+      .sec6_sub {
+        font-family: $font-book;
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      .sec6_title {
+        font-family: $font-bold;
+        font-size: 38px;
+        color: $text-white;
+      }
+
+      .sec6_btn {
+        width: 18%;
+        height: 5.5vh;
+        background-color: $text-white;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6vw;
+        font-family: $font-medium;
+        font-size: 14px;
+        color: $purple-primary;
+        transition: $trans-fast;
+
+        .sec6_btn_icon {
+          width: 14px;
+          height: 14px;
+          object-fit: contain;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 35vh;
+
+    .sec6_center {
+      width: 90%;
+
+      .sec6_banner {
+        height: auto;
+        padding: 5vh 4vw;
+        gap: 2.5vh;
+
+        .sec6_title {
+          font-size: 26px;
+        }
+
+        .sec6_btn {
+          width: 70%;
+          height: 6vh;
+        }
+      }
+    }
+  }
+}

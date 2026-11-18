@@ -1,0 +1,203 @@
+@use '../../../styles/variables.scss' as *;
+
+.sec5 {
+  width: 100vw;
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sec5_center {
+    width: 80%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vh;
+
+    .sec5_header {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.8vh;
+
+      .sec5_title {
+        font-family: $font-bold;
+        font-size: 40px;
+        color: $text-white;
+      }
+
+      .sec5_subtitle {
+        font-family: $font-book;
+        font-size: 16px;
+        line-height: 1.5;
+        color: $text-gray;
+      }
+    }
+
+    .sec5_steps_wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+
+      .sec5_step_container {
+        flex: 0 0 30%;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .sec5_card {
+          width: 100%;
+          min-height: 38vh;
+          background-color: $bg-card;
+          border-radius: 16px;
+          border: 1px solid rgba(57, 57, 83, 0.4);
+          display: flex;
+          flex-direction: column;
+          gap: 2vh;
+          padding: 4vh 2.5vw;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+          .sec5_card_number {
+            font-family: $font-mono-bold;
+            font-size: 32px;
+            color: $text-white;
+          }
+
+          .sec5_card_title {
+            font-family: $font-bold;
+            font-size: 24px;
+            color: $text-white;
+          }
+
+          .sec5_card_desc {
+            font-family: $font-book;
+            font-size: 14px;
+            line-height: 1.6;
+            color: $text-gray;
+          }
+        }
+
+        &:nth-child(1) .sec5_card {
+          transform: rotate(-1.5deg);
+
+          &:hover {
+            border-color: rgba(105, 102, 255, 0.5);
+            transform: rotate(-1.5deg) translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        &:nth-child(2) .sec5_card {
+          transform: rotate(2.5deg);
+
+          &:hover {
+            border-color: rgba(105, 102, 255, 0.5);
+            transform: rotate(2.5deg) translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        &:nth-child(3) .sec5_card {
+          transform: rotate(-2deg);
+
+          &:hover {
+            border-color: rgba(105, 102, 255, 0.5);
+            transform: rotate(-2deg) translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        .sec5_arrow_wrap {
+          position: absolute;
+          right: -3vw;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 5vw;
+          height: 4vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 10;
+          pointer-events: none;
+
+          .sec5_curved_arrow {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+
+          &.arrow_2 {
+            transform: translateY(-50%) scaleY(-1);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 6vh 0;
+
+    .sec5_center {
+      width: 90%;
+      gap: 3.5vh;
+
+      .sec5_header {
+        width: 100%;
+
+        .sec5_title {
+          font-size: 28px;
+        }
+
+        .sec5_subtitle {
+          font-size: 14px;
+        }
+      }
+
+      .sec5_steps_wrap {
+        flex-direction: column;
+        gap: 4vh;
+
+        .sec5_step_container {
+          width: 100%;
+          flex: none;
+
+          .sec5_card {
+            min-height: auto;
+            padding: 3.5vh 5vw;
+          }
+
+          &:nth-child(1) .sec5_card {
+            transform: rotate(-1deg);
+          }
+
+          &:nth-child(2) .sec5_card {
+            transform: rotate(1.5deg);
+          }
+
+          &:nth-child(3) .sec5_card {
+            transform: rotate(-1deg);
+          }
+
+          .sec5_arrow_wrap {
+            position: static;
+            width: 100%;
+            height: 5vh;
+            margin: 1vh 0;
+            transform: rotate(90deg);
+
+            &.arrow_2 {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}

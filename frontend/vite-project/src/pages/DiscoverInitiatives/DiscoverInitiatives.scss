@@ -1,0 +1,240 @@
+@use '../../styles/variables.scss' as *;
+
+.initiatives_page {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-main;
+  overflow-x: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70vh;
+    @include bg-grid;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .initiatives_main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 6vh;
+
+    .initiatives_center {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .initiatives_header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2vh;
+        padding: 6vh 0 4.5vh 0;
+
+        .initiatives_title {
+          font-family: $font-bold;
+          font-size: 42px;
+          color: $text-white;
+        }
+
+        .initiatives_subtitle {
+          font-family: $font-book;
+          font-size: 15px;
+          line-height: 1.6;
+          color: $text-gray;
+          max-width: 85%;
+        }
+
+        .initiatives_tabs {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1vw;
+          padding-top: 2vh;
+
+          .initiatives_tab_btn {
+            padding: 0.9vh 1.8vw;
+            border-radius: 8px;
+            font-family: $font-medium;
+            font-size: 14px;
+            color: $text-gray;
+            background-color: rgba(57, 57, 83, 0.3);
+            border: 1px solid rgba(57, 57, 83, 0.4);
+            transition: $trans-fast;
+
+            &:hover,
+            &.active {
+              color: $text-white;
+              background-color: $purple-primary;
+              border-color: $purple-primary;
+            }
+          }
+        }
+      }
+
+      .initiatives_list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.2vh;
+        margin-bottom: 8vh;
+
+        .rfp_card {
+          width: 100%;
+          background-color: $bg-card;
+          border: 1px solid rgba(57, 57, 83, 0.4);
+          border-radius: 16px;
+          padding: 3.5vh 2.5vw;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          text-decoration: none;
+          color: inherit;
+          transition: $trans-fast;
+
+          &:hover {
+            border-color: rgba(105, 102, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+          }
+
+          .rfp_card_left {
+            width: 78%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2vh;
+
+            .rfp_card_title {
+              font-family: $font-bold;
+              font-size: 22px;
+              color: $text-white;
+              line-height: 1.25;
+            }
+
+            .rfp_card_desc {
+              font-family: $font-book;
+              font-size: 14px;
+              line-height: 1.5;
+              color: $text-gray;
+            }
+
+            .rfp_card_amount {
+              font-family: $font-mono;
+              font-size: 13px;
+              color: $text-muted;
+              padding-top: 0.5vh;
+
+              strong {
+                color: $text-white;
+              }
+            }
+          }
+
+          .rfp_card_right {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+
+            .rfp_status_badge {
+              font-family: $font-medium;
+              font-size: 13px;
+              border-radius: 20px;
+              padding: 0.5vh 1.2vw;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.4vw;
+              white-space: nowrap;
+
+              &.status_funded {
+                background-color: #171723;
+                color: $text-white;
+                border: 1px solid rgba(57, 57, 83, 0.5);
+              }
+
+              &.status_open {
+                background-color: $purple-primary;
+                color: $text-white;
+              }
+
+              &.status_completed {
+                background-color: #00C278;
+                color: $text-white;
+
+                .status_check {
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .initiatives_main {
+      .initiatives_center {
+        width: 90%;
+
+        .initiatives_header {
+          padding: 4vh 0 3vh 0;
+
+          .initiatives_title {
+            font-size: 28px;
+          }
+
+          .initiatives_subtitle {
+            max-width: 100%;
+            font-size: 14px;
+          }
+
+          .initiatives_tabs {
+            flex-wrap: wrap;
+            gap: 2vw;
+
+            .initiatives_tab_btn {
+              padding: 0.8vh 3.5vw;
+              font-size: 13px;
+            }
+          }
+        }
+
+        .initiatives_list {
+          gap: 2vh;
+          margin-bottom: 5vh;
+
+          .rfp_card {
+            flex-direction: column-reverse;
+            gap: 2vh;
+            padding: 3vh 4vw;
+
+            .rfp_card_left {
+              width: 100%;
+            }
+
+            .rfp_card_right {
+              width: 100%;
+              justify-content: flex-start;
+            }
+          }
+        }
+      }
+    }
+  }
+}

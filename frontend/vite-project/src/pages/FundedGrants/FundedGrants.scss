@@ -1,0 +1,273 @@
+@use '../../styles/variables.scss' as *;
+
+.grants_page {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-main;
+  overflow-x: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70vh;
+    @include bg-grid;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .grants_main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 8vh;
+
+    .grants_hero {
+      width: 100vw;
+      min-height: 35vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .grants_hero_center {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2vh;
+        padding-top: 4vh;
+
+        .grants_title {
+          font-family: $font-bold;
+          font-size: 48px;
+          color: $text-white;
+        }
+
+        .grants_subtitle {
+          font-family: $font-book;
+          font-size: 16px;
+          color: $text-gray;
+          max-width: 60%;
+          line-height: 1.5;
+        }
+
+        .grants_filters {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1vw;
+          padding-top: 2vh;
+
+          .grants_filter_btn {
+            padding: 1vh 1.6vw;
+            border-radius: 8px;
+            font-family: $font-medium;
+            font-size: 14px;
+            color: $text-gray;
+            background-color: rgba(57, 57, 83, 0.3);
+            border: 1px solid rgba(57, 57, 83, 0.4);
+            transition: $trans-fast;
+
+            &:hover,
+            &.active {
+              color: $text-white;
+              background-color: $purple-primary;
+              border-color: $purple-primary;
+            }
+          }
+        }
+      }
+    }
+
+    .grants_list_sec {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 4vh;
+
+      .grants_list_center {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .grants_grid {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2vw;
+
+          .grants_card {
+            flex: 0 0 calc(33.333% - 1.34vw);
+            background-color: $bg-card;
+            border-radius: 16px;
+            border: 1px solid rgba(57, 57, 83, 0.4);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: $trans-fast;
+
+            &:hover {
+              border-color: rgba(105, 102, 255, 0.4);
+              transform: translateY(-4px);
+            }
+
+            .grants_card_top_img {
+              width: 100%;
+              height: 20vh;
+              background-color: #171723;
+              overflow: hidden;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              .grants_card_placeholder {
+                width: 100%;
+                height: 100%;
+                background-color: #171723;
+              }
+            }
+
+            .grants_card_bottom {
+              width: 100%;
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 3vh 0;
+
+              .grants_card_bottom_center {
+                width: 84%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 2.5vh;
+
+                .grants_card_info {
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1.2vh;
+
+                  .grants_card_category {
+                    font-family: $font-mono;
+                    font-size: 13px;
+                    color: $text-muted;
+                    letter-spacing: 0.5px;
+                  }
+
+                  .grants_card_title {
+                    font-family: $font-bold;
+                    font-size: 22px;
+                    color: $text-white;
+                    line-height: 1.25;
+                  }
+
+                  .grants_card_amount {
+                    font-family: $font-mono;
+                    font-size: 13px;
+                    color: $text-muted;
+
+                    span {
+                      color: $text-gray;
+                    }
+                  }
+
+                  .grants_card_desc {
+                    font-family: $font-book;
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $text-gray;
+                  }
+                }
+
+                .grants_card_avatars {
+                  display: flex;
+                  align-items: center;
+
+                  .grants_avatar {
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 50%;
+                    border: 2px solid $bg-card;
+                    object-fit: cover;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grants_main {
+      .grants_hero {
+        .grants_hero_center {
+          width: 90%;
+
+          .grants_title {
+            font-size: 32px;
+          }
+
+          .grants_subtitle {
+            max-width: 100%;
+            font-size: 14px;
+          }
+
+          .grants_filters {
+            flex-wrap: wrap;
+            gap: 2vw;
+
+            .grants_filter_btn {
+              padding: 1vh 3vw;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+      .grants_list_sec {
+        .grants_list_center {
+          width: 90%;
+
+          .grants_grid {
+            flex-direction: column;
+            gap: 2.5vh;
+
+            .grants_card {
+              flex: none;
+              width: 100%;
+
+              .grants_card_top_img {
+                height: 18vh;
+              }
+
+              .grants_card_bottom {
+                padding: 2.5vh 0;
+
+                .grants_card_bottom_center {
+                  width: 86%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

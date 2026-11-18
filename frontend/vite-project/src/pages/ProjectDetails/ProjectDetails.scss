@@ -1,0 +1,495 @@
+@use '../../styles/variables.scss' as *;
+
+.project_details_page {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-main;
+  overflow-x: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70vh;
+    @include bg-grid;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .project_details_main {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 4vh 0 10vh 0;
+
+    .project_details_center {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+
+      .project_banner_wrap {
+        width: 100%;
+        height: 38vh;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 4vh;
+        background-color: #171723;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+        .project_banner_img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .project_header_meta {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+
+        .project_category {
+          font-family: $font-mono;
+          font-size: 14px;
+          color: $text-muted;
+          letter-spacing: 0.5px;
+        }
+
+        .project_title {
+          font-family: $font-bold;
+          font-size: 40px;
+          line-height: 1.2;
+          color: $text-white;
+        }
+
+        .project_action_row {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 1vh;
+
+          .project_badges_left {
+            display: flex;
+            align-items: center;
+            gap: 1.5vw;
+
+            .project_status_badge {
+              background-color: #00C278;
+              color: $text-white;
+              font-family: $font-medium;
+              font-size: 13px;
+              border-radius: 20px;
+              padding: 0.5vh 0.9vw;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.4vw;
+
+              .status_check {
+                font-weight: bold;
+              }
+            }
+
+            .project_funding_amount {
+              font-family: $font-mono;
+              font-size: 14px;
+              color: $text-muted;
+
+              strong {
+                color: $text-white;
+              }
+            }
+          }
+
+          .project_site_btn {
+            background-color: $purple-primary;
+            color: $text-white;
+            border-radius: 8px;
+            font-family: $font-medium;
+            font-size: 14px;
+            padding: 1.1vh 1.4vw;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6vw;
+            transition: $trans-fast;
+
+            .project_btn_icon {
+              font-size: 14px;
+            }
+
+            &:hover {
+              background-color: $purple-hover;
+              transform: translateY(-2px);
+            }
+          }
+        }
+
+        .project_team_block {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1vh;
+          padding-top: 1.5vh;
+
+          .project_team_label {
+            font-family: $font-medium;
+            font-size: 14px;
+            color: $text-muted;
+          }
+
+          .project_team_list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1vw;
+
+            .project_team_pill {
+              background-color: $bg-card;
+              border: 1px solid rgba(57, 57, 83, 0.5);
+              border-radius: 24px;
+              padding: 0.6vh 1vw;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.7vw;
+
+              .team_member_avatar {
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                object-fit: cover;
+              }
+
+              .team_member_name {
+                font-family: $font-medium;
+                font-size: 14px;
+                color: $text-white;
+              }
+            }
+          }
+        }
+      }
+
+      .project_divider {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(57, 57, 83, 0.4);
+        margin: 4.5vh 0;
+      }
+
+      .project_text_sections {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 4.5vh;
+
+        .project_text_block {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5vh;
+
+          .project_block_title {
+            font-family: $font-bold;
+            font-size: 22px;
+            color: $text-white;
+          }
+
+          .project_block_text {
+            font-family: $font-book;
+            font-size: 15px;
+            line-height: 1.7;
+            color: $text-gray;
+          }
+
+          .project_links_list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2vh;
+
+            .project_useful_link {
+              font-family: $font-medium;
+              font-size: 15px;
+              color: $purple-primary;
+              display: inline-flex;
+              align-items: center;
+              gap: 0.5vw;
+              width: fit-content;
+              transition: $trans-fast;
+
+              .useful_link_icon {
+                font-size: 14px;
+              }
+
+              &:hover {
+                color: $purple-hover;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .project_transactions_list {
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+
+            .project_tx_card {
+              background-color: $bg-card;
+              border: 1px solid rgba(57, 57, 83, 0.4);
+              border-radius: 12px;
+              padding: 2.5vh 2vw;
+              display: flex;
+              flex-direction: column;
+              gap: 1vh;
+              transition: $trans-fast;
+
+              &:hover {
+                border-color: rgba(105, 102, 255, 0.4);
+              }
+
+              .tx_card_top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .tx_title {
+                  font-family: $font-bold;
+                  font-size: 18px;
+                  color: $text-white;
+                }
+
+                .tx_amount_wrap {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5vw;
+
+                  .tx_amount {
+                    font-family: $font-mono-bold;
+                    font-size: 16px;
+                    color: $text-white;
+                  }
+
+                  .tx_link {
+                    color: $text-muted;
+                    font-size: 16px;
+                    transition: $trans-fast;
+
+                    &:hover {
+                      color: $text-white;
+                    }
+                  }
+                }
+              }
+
+              .tx_date {
+                font-family: $font-mono;
+                font-size: 13px;
+                color: $text-muted;
+              }
+
+              .tx_desc {
+                font-family: $font-book;
+                font-size: 14px;
+                line-height: 1.5;
+                color: $text-gray;
+              }
+            }
+          }
+        }
+      }
+
+      .project_more_grants {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3vh;
+        margin-top: 8vh;
+        padding-top: 6vh;
+        border-top: 1px solid rgba(57, 57, 83, 0.3);
+
+        .more_grants_header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .more_grants_title {
+            font-family: $font-bold;
+            font-size: 32px;
+            color: $text-white;
+          }
+
+          .more_grants_link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6vw;
+            font-family: $font-medium;
+            font-size: 15px;
+            color: $purple-primary;
+
+            .more_link_arrow {
+              width: 16px;
+              height: 14px;
+              object-fit: contain;
+              transition: $trans-fast;
+            }
+
+            &:hover {
+              color: $purple-hover;
+
+              .more_link_arrow {
+                transform: translateX(4px);
+              }
+            }
+          }
+        }
+
+        .more_grants_grid {
+          display: flex;
+          gap: 2vw;
+
+          .more_card {
+            flex: 1;
+            background-color: $bg-card;
+            border: 1px solid rgba(57, 57, 83, 0.4);
+            border-radius: 16px;
+            padding: 3.5vh 2vw;
+            display: flex;
+            flex-direction: column;
+            transition: $trans-fast;
+
+            &:hover {
+              border-color: rgba(105, 102, 255, 0.4);
+              transform: translateY(-4px);
+            }
+
+            .more_card_center {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              gap: 1.4vh;
+
+              .more_card_category {
+                font-family: $font-mono;
+                font-size: 13px;
+                color: $text-muted;
+              }
+
+              .more_card_title {
+                font-family: $font-bold;
+                font-size: 22px;
+                color: $text-white;
+              }
+
+              .more_card_amount {
+                font-family: $font-mono;
+                font-size: 13px;
+                color: $text-muted;
+
+                span {
+                  color: $text-gray;
+                }
+              }
+
+              .more_card_desc {
+                font-family: $font-book;
+                font-size: 14px;
+                line-height: 1.5;
+                color: $text-gray;
+              }
+
+              .more_card_avatars {
+                display: flex;
+                align-items: center;
+                padding-top: 1.5vh;
+
+                .more_avatar {
+                  width: 28px;
+                  height: 28px;
+                  border-radius: 50%;
+                  border: 2px solid $bg-card;
+                  object-fit: cover;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .project_details_main {
+      .project_details_center {
+        width: 90%;
+
+        .project_banner_wrap {
+          height: 24vh;
+          border-radius: 14px;
+          margin-bottom: 3vh;
+        }
+
+        .project_header_meta {
+          .project_title {
+            font-size: 28px;
+          }
+
+          .project_action_row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2vh;
+
+            .project_badges_left {
+              gap: 3vw;
+            }
+
+            .project_site_btn {
+              width: 100%;
+              justify-content: center;
+              padding: 1.5vh 0;
+            }
+          }
+
+          .project_team_block {
+            .project_team_list {
+              gap: 2vw;
+
+              .project_team_pill {
+                padding: 0.8vh 3vw;
+                gap: 2vw;
+              }
+            }
+          }
+        }
+
+        .project_more_grants {
+          .more_grants_header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5vh;
+
+            .more_grants_title {
+              font-size: 24px;
+            }
+          }
+
+          .more_grants_grid {
+            flex-direction: column;
+            gap: 2.5vh;
+
+            .more_card {
+              padding: 3vh 4vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@use './fonts.scss';
+
+$bg-main: #1C1C28;
+$bg-card: #232334;
+$bg-card-hover: #29293D;
+$bg-card-alt: #161622;
+$bg-subtle: rgba(255, 255, 255, 0.05);
+
+$purple-primary: #6966FF;
+$purple-hover: #5653E6;
+$purple-light: rgba(105, 102, 255, 0.15);
+$purple-border: rgba(105, 102, 255, 0.4);
+
+$text-white: #FFFFFF;
+$text-gray: #A5A5BA;
+$text-muted: #6C6C89;
+$border-color: rgba(57, 57, 83, 0.4);
+
+$font-book: 'CircularStd-Book', sans-serif;
+$font-medium: 'CircularStd-Medium', sans-serif;
+$font-bold: 'CircularStd-Bold', sans-serif;
+$font-black: 'CircularStd-Black', sans-serif;
+$font-mono: 'SpaceMono-Regular', monospace;
+$font-mono-bold: 'SpaceMono-Bold', monospace;
+
+$trans-fast: 0.25s all ease;
+$trans-smooth: 0.35s all ease;
+
+@mixin bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(57, 57, 83, 0.28) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(57, 57, 83, 0.28) 1px, transparent 1px);
+  background-size: 24px 24px;
+}

@@ -1,0 +1,191 @@
+@use '../../../styles/variables.scss' as *;
+
+.sec1 {
+  width: 100vw;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .sec1_center {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4.5vh;
+
+    .sec1_hero_text {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .sec1_title {
+        font-family: $font-bold;
+        font-size: 58px;
+        line-height: 1.15;
+        color: $text-white;
+
+        .sec1_highlight {
+          position: relative;
+          display: inline-block;
+
+          .sec1_draw_line {
+            position: absolute;
+            top: 8vh;
+            left: 0;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    .sec1_buttons {
+      width: 32%;
+      height: 7vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.2vw;
+
+      .sec1_btn_secondary {
+        width: 48%;
+        height: 100%;
+        background-color: #393953;
+        color: $text-white;
+        border-radius: 8px;
+        font-family: $font-medium;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: $trans-fast;
+
+        &:hover {
+          background-color: #4A4A6B;
+        }
+      }
+
+      .sec1_btn_primary {
+        width: 52%;
+        height: 100%;
+        background-color: $purple-primary;
+        color: $text-white;
+        border-radius: 8px;
+        font-family: $font-medium;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6vw;
+        transition: $trans-fast;
+
+        .sec1_btn_icon {
+          width: 16px;
+          height: 16px;
+          object-fit: contain;
+        }
+
+        &:hover {
+          background-color: $purple-hover;
+        }
+      }
+    }
+
+    .sec1_stats {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .sec1_stat_item {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.8vh;
+
+        .sec1_stat_value {
+          font-family: $font-mono-bold;
+          font-size: 22px;
+          color: $text-white;
+          letter-spacing: 0.5px;
+        }
+
+        .sec1_stat_label {
+          font-family: $font-mono;
+          font-size: 14px;
+          color: $text-gray;
+        }
+      }
+    }
+
+    .sec1_arrow_wrap {
+      width: 100%;
+      height: 6vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      .sec1_down_arrow {
+        width: 24px;
+        height: 38px;
+        object-fit: contain;
+        transition: $trans-fast;
+
+        &:hover {
+          transform: translateY(6px);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 85vh;
+
+    .sec1_center {
+      width: 90%;
+      gap: 3.5vh;
+
+      .sec1_hero_text {
+        .sec1_title {
+          font-size: 32px;
+
+          .sec1_highlight .sec1_draw_line {
+            bottom: -0.8vh;
+          }
+        }
+      }
+
+      .sec1_buttons {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        gap: 2vh;
+
+        .sec1_btn_secondary,
+        .sec1_btn_primary {
+          width: 100%;
+          height: 6.5vh;
+        }
+      }
+
+      .sec1_stats {
+        width: 100%;
+        flex-direction: column;
+        gap: 2.5vh;
+
+        .sec1_stat_item {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
