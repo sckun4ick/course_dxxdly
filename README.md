@@ -19,12 +19,13 @@ docker-compose up -d
 
 ## Для Backend'a 
 ```bash
-cd backend
+cd .\backend\
 npm i
 node index.js
 ```
 ## Для Frontend'a
 ```bash
+cd .\frontend\vite-project\
 npm install
 npm run dev
 ```
